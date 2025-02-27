@@ -5,10 +5,89 @@
     <title>POPCAT CLASSIC</title>
     <link rel="shortcut icon" type="image/jpg" href="imgs/icon.jpg"/>
     <link rel="icon" type="image/png" sizes="16x16" href="imgs/favicon-16x16.png">
+    <style>
+        html { height:100%; overflow:hidden; }
+        body {
+            height:100%;
+            margin:0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #bdaa90;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            position:relative;
+            overflow:hidden;
+        }
+        body::before{
+            content:"";
+            position:absolute;
+            width:120%;height:120%;
+            top:50%;left:50%;
+            z-index:-1;
+            transform:translate(-50%,-50%) rotate(-3deg);
+            background-image: url("imgs/bg.jpg");
+            background-repeat: repeat-x;
+            background-size: contain;
+        }
+
+        .box {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #bdaa90;
+        }
+
+        .title {
+            margin: 2em 0 0 0;
+            width: min(600px, 80%);
+        }
+
+        .cat-img {
+            height: 0;
+            flex-grow: 1;
+            width: 100%;
+            max-width: 800px;
+            background-position: bottom;
+            background-size: contain;
+            background-repeat: no-repeat;
+            touch-action: manipulation;
+            text-align: center;
+            color: white;
+            -webkit-text-stroke-width: 3px;
+            -webkit-text-stroke-color: black;
+
+            /*防止文字被選取*/
+            user-select: none;
+            font-weight:900;
+            font-size:80px;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        #p {
+            background-image: url("imgs/p.png");
+        }
+        #op {
+            background-image: url("imgs/op.png");
+        }
+    </style>
 </head>
 
 <body>
-<img class="title" src="imgs/popcat.svg" alt="POPCAT">
-<div class="cat-img" id="p">0</div>
+<!--- [ ]  新增容器去包裹標題圖片與點擊數-->
+<div class="box">
+    <!--- [ ]  標題圖片 class `title`-->
+    <img class="title" src="imgs/popcat.svg" alt="POPCAT">
+    <!--- [ ]  點擊數 class `cat-img` id `p`-->
+    <div class="cat-img" id="p">0</div>
+<!--    <div class="cat-img" id="op"></div>-->
+
+</div>
+<!--<img class="title" src="imgs/popcat.svg" alt="POPCAT">-->
+<!--<div class="cat-img" id="p">0</div>-->
 </body>
 </html>
